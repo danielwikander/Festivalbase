@@ -3,26 +3,49 @@ package controllers;
 import models.*;
 
 import java.sql.*;
-import java.util.LinkedList;
 
 public class SQLController {
-    private static String dbURL         = "REPLACE WITH DATABASE URL";
-    private static String dbUser        = "REPLACE WITH DATABASE USERNAME";
-    private static String dbPassword    = "REPLACE WITH DATABASE PASSWORD";
+    private static String dbURL         = "pgserver.mah.se";
+    private static String dbUser        = "ah4502";
+    private static String dbPassword    = "rrdbuol3";
     private static Connection dbConnection;
-
 
     private static void addBand(Band band) {
         try {
             Statement stmt = dbConnection.createStatement();
             stmt.executeUpdate(
-                    "INSERT INTO bands(" + "" + ");");
+                    "INSERT INTO bands(band_name, band_country_of_origin, band_info, contact_person_id) " +
+                            "VALUES (DEFAULT, '" + band.getBand_name() + "', '" + band.getBand_counry_of_origin() +
+                            "', '" + band.getBand_info() + "', '" + band.getContact_person_id() + "');");
         } catch (SQLException e) {
             System.out.println("Couldn't add band to DB");
             e.printStackTrace();
         }
     }
 
+     private static void addWorker(Worker worker) {
+        try {
+            Statement stmt = dbConnection.createStatement();
+            stmt.executeUpdate(
+                    "INSERT INTO workers(person_number, name, address) " +
+                            "VALUES ('" + worker.getPerson_number() + "', '" + worker.getName() + "', '" + worker.getAddress() + "');");
+        } catch (SQLException e) {
+            System.out.println("Couldn't add worker to DB");
+            e.printStackTrace();
+        }
+    }
+
+     private static void assignContactPerson(Worker worker, Band band) {
+        try {
+            Statement stmt = dbConnection.createStatement();
+            stmt.executeUpdate(
+                    "INSERT INTO bands(contact_person_id) " +
+                            "VALUES ('" + worker.getPerson_number() + "');");
+        } catch (SQLException e) {
+            System.out.println("Couldn't add contact person to DB");
+            e.printStackTrace();
+        }
+    }
 
     public static StageSchedule getSchedule(String stagename) {
         StageSchedule schedule = new StageSchedule();
@@ -30,7 +53,8 @@ public class SQLController {
             Statement stmt = dbConnection.createStatement();
             ResultSet rs = stmt.executeQuery(
                     "SELECT time, band_playing" +
-                            "FROM schedule WHERE scene = " + stagename + " SORT BY time ASC);");
+                            "FROM schedule WHERE scene = " + stagename +
+                            " SORT BY time ASC);");
             if (rs.next()) {
                 schedule.newTimeSlice(rs.getDate(1), rs.getString(2));
             }

@@ -15,6 +15,7 @@ public class StartViewController {
     @FXML
     private void startNormalApp() throws IOException {
         System.out.println("Started normal app");
+        SQLController.dbConnect();
         Main.showMainLayout();
     }
 

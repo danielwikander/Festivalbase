@@ -6,7 +6,6 @@ import javafx.scene.layout.BorderPane;
 
 
 public class MainViewController {
-    SQLController db
     @FXML
     TableView mallorcaSchedule;
     @FXML
@@ -19,6 +18,7 @@ public class MainViewController {
 
     public void MainViewController() {
         SQLController.dbConnect();
+
 
     }
 
