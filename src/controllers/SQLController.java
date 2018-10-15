@@ -1,7 +1,6 @@
 package controllers;
 
 import models.*;
-
 import java.sql.*;
 
 public class SQLController {
@@ -10,37 +9,55 @@ public class SQLController {
     private static String dbPassword    = "rrdbuol3";
     private static Connection dbConnection;
 
+    /**
+     * Adds a band to the database.
+     * @param band  The band to add.
+     */
     private static void addBand(Band band) {
         try {
-            Statement stmt = dbConnection.createStatement();
-            stmt.executeUpdate(
-                    "INSERT INTO bands(band_name, band_country_of_origin, band_info, contact_person_id) " +
-                            "VALUES (DEFAULT, '" + band.getBand_name() + "', '" + band.getBand_counry_of_origin() +
-                            "', '" + band.getBand_info() + "', '" + band.getContact_person_id() + "');");
-        } catch (SQLException e) {
+            PreparedStatement stmt = dbConnection.prepareStatement("INSERT INTO " +
+                    "bands(band_name, band_country_of_origin, band_info, contact_person_id)" +
+                    "VALUES(?, ?, ?, ?)");
+            stmt.setString(1, band.getBand_name());
+            stmt.setString(2, band.getBand_counry_of_origin());
+            stmt.setString(3, band.getBand_info());
+            stmt.setInt(4, band.getContact_person_id());
+
+           } catch (SQLException e) {
             System.out.println("Couldn't add band to DB");
             e.printStackTrace();
         }
     }
 
+    /**
+     * Adds a new worker to the database.
+     */
      private static void addWorker(Worker worker) {
         try {
-            Statement stmt = dbConnection.createStatement();
-            stmt.executeUpdate(
-                    "INSERT INTO workers(person_number, name, address) " +
-                            "VALUES ('" + worker.getPerson_number() + "', '" + worker.getName() + "', '" + worker.getAddress() + "');");
+            PreparedStatement stmt = dbConnection.prepareStatement("INSERT INTO " +
+                    "workers(person_number, name, address) " +
+                    "VALUES(?, ?, ?)");
+            stmt.setInt(1, worker.getPerson_number());
+            stmt.setString(2, worker.getName());
+            stmt.setString(3, worker.getAddress());
+
         } catch (SQLException e) {
             System.out.println("Couldn't add worker to DB");
             e.printStackTrace();
         }
     }
 
+
+    /**
+     * Assigns a contact person to a band.
+     */
      private static void assignContactPerson(Worker worker, Band band) {
         try {
-            Statement stmt = dbConnection.createStatement();
-            stmt.executeUpdate(
-                    "INSERT INTO bands(contact_person_id) " +
-                            "VALUES ('" + worker.getPerson_number() + "');");
+            PreparedStatement stmt = dbConnection.prepareStatement("INSERT INTO bands(contact_person_id) " +
+                    "VALUES (?) WHERE bands.id = ?");
+            stmt.setInt(1, worker.getPerson_number());
+            stmt.setInt(2, band.getBand_id());
+
         } catch (SQLException e) {
             System.out.println("Couldn't add contact person to DB");
             e.printStackTrace();
@@ -59,7 +76,8 @@ public class SQLController {
             // '?' is replaced with a variable on stmt.setString
             // The number 1 states which  '?' to replace.
             // (In this case there is only one in the statement)
-            PreparedStatement stmt = dbConnection.prepareStatement("SELECT time, band_playing FROM schedule WHERE scene = ? SORT BY time ASC");
+            PreparedStatement stmt = dbConnection.prepareStatement("SELECT time, band_playing " +
+                    "FROM schedule WHERE scene = ? SORT BY time ASC");
             stmt.setString(1, stagename);
             ResultSet rs = stmt.executeQuery();
 
@@ -78,6 +96,9 @@ public class SQLController {
         return schedule;
     }
 
+    /**
+     * Connects to the database.
+     */
     public static void dbConnect() {
         try {
             dbConnection = DriverManager.getConnection(dbURL, dbUser,
@@ -88,13 +109,17 @@ public class SQLController {
         }
     }
 
-    public static void dbDisconnect() throws SQLException {
+    /**
+     * Disconnects from the database.
+     */
+    public static void dbDisconnect() {
         try {
             if (dbConnection != null && !dbConnection.isClosed()) {
                 dbConnection.close();
             }
         } catch (Exception e){
-            throw e;
+            e.printStackTrace();
+            System.out.println("Couldn't disconnect from database.");
         }
     }
 }
