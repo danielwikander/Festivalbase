@@ -1,11 +1,12 @@
 package models;
 
+/**
+ * Represents a worker.
+ */
 public class Worker {
-
     private int    person_number;
     private String name;
     private String address;
-
 
     public Worker(int person_number, String name, String address) {
         this.person_number = person_number;
@@ -17,23 +18,12 @@ public class Worker {
         return person_number;
     }
 
-    public void setPerson_number(int person_number) {
-        this.person_number = person_number;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
 }

@@ -1,5 +1,8 @@
 package models;
 
+/**
+ * Represents a System Administrator.
+ */
 public class SystemAdministrator {
 
     private String username;

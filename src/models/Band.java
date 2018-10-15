@@ -33,7 +33,7 @@ public class Band {
         return contact_person_id;
     }
 
-    public String getBand_counry_of_origin() {
+    public String getBand_country_of_origin() {
         return band_counry_of_origin;
     }
 

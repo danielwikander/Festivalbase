@@ -1,5 +1,7 @@
 package models;
 
+import javafx.collections.ObservableList;
+
 import java.sql.Date;
 import java.util.LinkedList;
 
@@ -7,13 +9,16 @@ import java.util.LinkedList;
  * Represents a schedule table for a specific stage.
  */
 public class StageSchedule {
-    private LinkedList schedule;
+    private ObservableList<timeSlice> schedule;
 
     public void newTimeSlice(Date time, String band_name) {
         timeSlice slice = new timeSlice(time, band_name);
         schedule.add(slice);
     }
 
+    public ObservableList<timeSlice> getSchedule() {
+        return schedule;
+    }
     /*
      * Represents a row in the schedule. ex: 20:45 - The beatles
      */
@@ -26,4 +31,5 @@ public class StageSchedule {
             this.band_name = band_name;
         }
     }
+
 }

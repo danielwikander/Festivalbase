@@ -3,6 +3,9 @@ package controllers;
 import models.*;
 import java.sql.*;
 
+/**
+ * Holds all the functions related to the database.
+ */
 public class SQLController {
     private static String dbURL         = "jdbc:postgresql://pgserver.mah.se/ah4502projekt";
     private static String dbUser        = "ah4502";
@@ -19,7 +22,7 @@ public class SQLController {
                     "bands(band_name, band_country_of_origin, band_info, contact_person_id)" +
                     "VALUES(?, ?, ?, ?)");
             stmt.setString(1, band.getBand_name());
-            stmt.setString(2, band.getBand_counry_of_origin());
+            stmt.setString(2, band.getBand_country_of_origin());
             stmt.setString(3, band.getBand_info());
             stmt.setInt(4, band.getContact_person_id());
 
