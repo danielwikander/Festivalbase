@@ -47,17 +47,30 @@ public class SQLController {
         }
     }
 
+    /**
+     * Returns the schedule for a specific scene.
+     * @param stagename     The name of the stage.
+     * @return              Returns the schedule for the stage.
+     */
     public static StageSchedule getSchedule(String stagename) {
         StageSchedule schedule = new StageSchedule();
         try {
-            Statement stmt = dbConnection.createStatement();
-            ResultSet rs = stmt.executeQuery(
-                    "SELECT time, band_playing" +
-                            "FROM schedule WHERE scene = " + stagename +
-                            " SORT BY time ASC);");
-            if (rs.next()) {
-                schedule.newTimeSlice(rs.getDate(1), rs.getString(2));
+            // PreparedStatement prepares a statement to execute.
+            // '?' is replaced with a variable on stmt.setString
+            // The number 1 states which  '?' to replace.
+            // (In this case there is only one in the statement)
+            PreparedStatement stmt = dbConnection.prepareStatement("SELECT time, band_playing FROM schedule WHERE scene = ? SORT BY time ASC");
+            stmt.setString(1, stagename);
+            ResultSet rs = stmt.executeQuery();
+
+            // Returns values while there are still rows in the retrieved dataset.
+            // If only a single row is expected, use an if-statement instead.
+            while(rs.next()) {
+                Date   time         = rs.getDate("time");
+                String band_playing = rs.getString("band_playing");
+                schedule.newTimeSlice(time, band_playing);
             }
+
         } catch (SQLException e) {
             System.out.println("Couldn't retrieve" + stagename + "schedule.");
             e.printStackTrace();
