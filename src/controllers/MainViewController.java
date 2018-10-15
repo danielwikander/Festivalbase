@@ -23,7 +23,13 @@ public class MainViewController {
     /**
      * Starts when the main view is constructed.
      */
-    public void MainViewController() {
+    /*public void MainViewController() {
+        SQLController.dbConnect();
+        populateTables();
+    }*/
+
+    @FXML
+    public void initialize() {
         SQLController.dbConnect();
         populateTables();
     }

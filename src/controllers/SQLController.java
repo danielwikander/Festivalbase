@@ -80,7 +80,7 @@ public class SQLController {
             // The number 1 states which  '?' to replace.
             // (In this case there is only one in the statement)
             PreparedStatement stmt = dbConnection.prepareStatement("SELECT time, band_playing " +
-                    "FROM schedule WHERE scene = ? SORT BY time ASC");
+                    "FROM schedule WHERE scene = ? ORDER BY time ASC");
             stmt.setString(1, stagename);
             ResultSet rs = stmt.executeQuery();
 
@@ -96,6 +96,9 @@ public class SQLController {
             System.out.println("Couldn't retrieve" + stagename + "schedule.");
             e.printStackTrace();
         }
+        // Print for testing purporses
+        System.out.println(schedule);
+
         return schedule;
     }
 
