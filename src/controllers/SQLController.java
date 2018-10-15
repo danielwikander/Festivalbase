@@ -5,7 +5,7 @@ import models.*;
 import java.sql.*;
 
 public class SQLController {
-    private static String dbURL         = "pgserver.mah.se";
+    private static String dbURL         = "jdbc:postgresql://pgserver.mah.se/ah4502projekt";
     private static String dbUser        = "ah4502";
     private static String dbPassword    = "rrdbuol3";
     private static Connection dbConnection;
