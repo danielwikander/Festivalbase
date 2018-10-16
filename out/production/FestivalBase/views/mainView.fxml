@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainViewController">
+   <children>
+      <TabPane layoutY="-1.0" prefHeight="700.0" prefWidth="901.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Schedule">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="1.0" layoutY="4.0" prefHeight="660.0" prefWidth="900.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="52.0" prefWidth="900.0" text="Mallorca" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TableView fx:id="mallorcaSchedule" prefHeight="200.0" prefWidth="200.0">
+                                <columns>
+                                  <TableColumn prefWidth="75.0" text="Time" />
+                                  <TableColumn prefWidth="75.0" text="Band" />
+                                </columns>
+                              </TableView>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="52.0" prefWidth="900.0" text="Diesel Tent" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TableView fx:id="dieselTentSchedule" prefHeight="200.0" prefWidth="200.0">
+                                 <columns>
+                                    <TableColumn prefWidth="75.0" text="Time" />
+                                    <TableColumn prefWidth="75.0" text="Band" />
+                                 </columns>
+                              </TableView>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="52.0" prefWidth="900.0" text="The Forum" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <TableView fx:id="theForumSchedule" prefHeight="200.0" prefWidth="200.0">
+                                 <columns>
+                                    <TableColumn prefWidth="75.0" text="Time" />
+                                    <TableColumn prefWidth="75.0" text="Band" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Bands">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

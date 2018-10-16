@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox minHeight="450.0" minWidth="650.0" prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.StartViewController">
+   <children>
+      <ImageView fitHeight="300.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/festivalbasestartpage.png" />
+         </image></ImageView>
+      <HBox>
+         <children>
+            <ImageView fx:id="startButton" fitHeight="150.0" fitWidth="325.0" onMouseClicked="#startNormalApp" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/startButton.png" />
+               </image></ImageView>
+            <ImageView fx:id="adminButton" fitHeight="150.0" fitWidth="325.0" onMouseClicked="#startAdminApp" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/adminButton.png" />
+               </image></ImageView>
+         </children>
+      </HBox>
+   </children>
+</VBox>

@@ -56,7 +56,8 @@ public class SQLController {
      */
      private static void assignContactPerson(Worker worker, Band band) {
         try {
-            PreparedStatement stmt = dbConnection.prepareStatement("INSERT INTO bands(contact_person_id) " +
+            PreparedStatement stmt = dbConnection.prepareStatement("INSERT INTO " +
+                    "bands(contact_person_id) " +
                     "VALUES (?) WHERE bands.id = ?");
             stmt.setInt(1, worker.getPerson_number());
             stmt.setInt(2, band.getBand_id());
@@ -77,7 +78,7 @@ public class SQLController {
         try {
             // PreparedStatement prepares a statement to execute.
             // '?' is replaced with a variable on stmt.setString
-            // The number 1 states which  '?' to replace.
+            // The number '1' states which  '?' to replace.
             // (In this case there is only one in the statement)
             PreparedStatement stmt = dbConnection.prepareStatement("SELECT time, band_playing " +
                     "FROM schedule WHERE scene = ? ORDER BY time ASC");
