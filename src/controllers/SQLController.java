@@ -88,7 +88,7 @@ public class SQLController {
             // Returns values while there are still rows in the retrieved dataset.
             // If only a single row is expected, use an if-statement instead.
             while(rs.next()) {
-                Date   time         = rs.getDate("time");
+                String time         = rs.getString("time");
                 String band_playing = rs.getString("band_playing");
                 schedule.newTimeSlice(time, band_playing);
             }

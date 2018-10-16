@@ -23,34 +23,19 @@
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TableView fx:id="mallorcaSchedule" prefHeight="200.0" prefWidth="200.0">
-                                <columns>
-                                  <TableColumn prefWidth="75.0" text="Time" />
-                                  <TableColumn prefWidth="75.0" text="Band" />
-                                </columns>
-                              </TableView>
+                              <TableView fx:id="mallorcaSchedule" prefHeight="200.0" prefWidth="200.0" />
                               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="52.0" prefWidth="900.0" text="Diesel Tent" textAlignment="CENTER">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TableView fx:id="dieselTentSchedule" prefHeight="200.0" prefWidth="200.0">
-                                 <columns>
-                                    <TableColumn prefWidth="75.0" text="Time" />
-                                    <TableColumn prefWidth="75.0" text="Band" />
-                                 </columns>
-                              </TableView>
+                              <TableView fx:id="dieselTentSchedule" prefHeight="200.0" prefWidth="200.0" />
                               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="52.0" prefWidth="900.0" text="The Forum" textAlignment="CENTER">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                               </Label>
-                              <TableView fx:id="theForumSchedule" prefHeight="200.0" prefWidth="200.0">
-                                 <columns>
-                                    <TableColumn prefWidth="75.0" text="Time" />
-                                    <TableColumn prefWidth="75.0" text="Band" />
-                                 </columns>
-                              </TableView>
+                              <TableView fx:id="theForumSchedule" prefHeight="200.0" prefWidth="200.0" />
                            </children>
                         </VBox>
                      </children>

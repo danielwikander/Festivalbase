@@ -53,7 +53,7 @@ public class Main extends Application {
             try {
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(Main.class.getResource("/views/mainView.fxml"));
-                //loader.setRoot("/views/mainView.fxml");
+               // loader.setRoot("/views/mainView.fxml");
                 mainLayout = loader.load();
             } catch (IOException e) {
                 e.printStackTrace();
