@@ -53,7 +53,6 @@ public class MainViewController {
     private void populateDieselSchedule() {
         StageSchedule dieselTent= SQLController.getSchedule("The Diesel Tent");
         dieselTentSchedule.setItems(dieselTent.getSchedule());
-        dieselTentSchedule.e
     }
 
     private void populateTheForumSchedule() {

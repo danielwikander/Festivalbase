@@ -18,6 +18,7 @@ public class StageSchedule {
     public ObservableList<timeSlice> getSchedule() {
         return schedule;
     }
+    
     /*
      * Represents a row in the schedule. ex: 20:45 - The beatles
      */

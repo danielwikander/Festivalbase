@@ -24,7 +24,7 @@ public class SQLController {
             stmt.setString(1, band.getBand_name());
             stmt.setString(2, band.getBand_country_of_origin());
             stmt.setString(3, band.getBand_info());
-            stmt.setInt(4, band.getContact_person_id());
+            stmt.setString(4, band.getContact_person_id());
 
            } catch (SQLException e) {
             System.out.println("Couldn't add band to DB");
@@ -40,7 +40,7 @@ public class SQLController {
             PreparedStatement stmt = dbConnection.prepareStatement("INSERT INTO " +
                     "workers(person_number, name, address) " +
                     "VALUES(?, ?, ?)");
-            stmt.setInt(1, worker.getPerson_number());
+            stmt.setString(1, worker.getPerson_number());
             stmt.setString(2, worker.getName());
             stmt.setString(3, worker.getAddress());
 
@@ -59,8 +59,8 @@ public class SQLController {
             PreparedStatement stmt = dbConnection.prepareStatement("INSERT INTO " +
                     "bands(contact_person_id) " +
                     "VALUES (?) WHERE bands.id = ?");
-            stmt.setInt(1, worker.getPerson_number());
-            stmt.setInt(2, band.getBand_id());
+            stmt.setString(1, worker.getPerson_number());
+            stmt.setString(2, band.getBand_name());
 
         } catch (SQLException e) {
             System.out.println("Couldn't add contact person to DB");
