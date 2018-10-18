@@ -192,6 +192,30 @@
                   </AnchorPane>
                </content>
             </Tab>
+            <Tab text="Workers">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <HBox prefHeight="50.0" prefWidth="900.0">
+                           <children>
+                              <Label prefHeight="48.0" prefWidth="450.0" text="Security schedule">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="49.0" prefWidth="450.0" text="Band contact associations">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <TableView fx:id="securityResponsibilityTable" layoutY="48.0" prefHeight="620.0" prefWidth="450.0" />
+                        <TableView fx:id="workerContactAssociationTable" layoutX="451.0" layoutY="48.0" prefHeight="620.0" prefWidth="450.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
         </tabs>
       </TabPane>
    </children>

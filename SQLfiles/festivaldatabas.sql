@@ -23,24 +23,33 @@ CREATE TABLE bands (
 );
 
 CREATE TABLE schedule (
-    time                    date    NOT NULL,
+    day                     date    NOT NULL,
+    time                    time    NOT NULL,
     band_playing            text    NOT NULL REFERENCES bands,
     scene                   text    NOT NULL REFERENCES scenes,
-    PRIMARY KEY (time, scene)
+    PRIMARY KEY (day, time, scene)
 );
 
 CREATE TABLE bandmember ( 
     bandmember_id           serial  PRIMARY KEY,
-    bandmember_name         text,
+    bandmember_name         text    NOT NULL,
     bandmember_info         text    
 );
 
 CREATE TABLE bandmember_association (
-    bandmember_id           int     REFERENCES bandmember,
-    band                    text    REFERENCES bands
+    bandmember_id           int     NOT NULL REFERENCES bandmember,
+    band                    text    NOT NULL REFERENCES bands
 );
 
 CREATE TABLE system_administrators (
-    username                text    PRIMARY KEY,
-    password                text
+    username                text    NOT NULL PRIMARY KEY,
+    password                text    NOT NULL
+);
+
+CREATE TABLE security_schedule (
+    day                     date    NOT NULL,
+    time                    time    NOT NULL,
+    scene                   text    NOT NULL REFERENCES scenes,
+    responsible_worker      text    NOT NULL REFERENCES workers,
+    PRIMARY KEY (day, time, responsible_worker)
 );

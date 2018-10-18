@@ -31,6 +31,6 @@ INSERT INTO scenes VALUES ('The Forum', 1500);
 
 
 -- Schedule
-INSERT INTO schedule VALUES('2019-05-10 20:00', 'AC/DC', 'Mallorca');
+INSERT INTO schedule VALUES('2019-05-10', '20:00', 'AC/DC', 'Mallorca');
 
 

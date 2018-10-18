@@ -269,4 +269,15 @@ public class MainViewController {
             enableFieldsAndButtons();
         }
     }
+
+    @FXML
+    private void populateSecuritySchedule() {
+        TableColumn worker = new TableColumn("Worker");
+    }
+
+    @FXML
+    private void populateWorkerContactTable() {
+
+    }
+
 }
