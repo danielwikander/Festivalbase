@@ -14,6 +14,10 @@ public class Worker {
         this.address       = address;
     }
 
+    public Worker(String person_number) {
+        this.person_number = person_number;
+    }
+
     public String getPerson_number() {
         return person_number;
     }
