@@ -1,6 +1,5 @@
 package controllers;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -8,10 +7,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
 import models.*;
 
-import javax.xml.soap.Text;
 import java.sql.Date;
 import java.sql.Time;
-import java.text.SimpleDateFormat;
 
 /**
  * Controls the Main View.

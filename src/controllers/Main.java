@@ -13,7 +13,6 @@ import java.io.IOException;
 public class Main extends Application {
 
     private static Stage primaryStage;
-    //private static BorderPane mainLayout;
     private static AnchorPane mainLayout;
 
     @Override
@@ -21,13 +20,6 @@ public class Main extends Application {
         Main.primaryStage = primaryStage;
         Main.primaryStage.setTitle("Mörtfors Rock Festival");
         showStartView();
-        /* oldstuff
-        Parent root = FXMLLoader.load(getClass().getResource("views/startView.fxml"));
-        primaryStage.setTitle("Mörtfors Rock Festival");
-        primaryStage.setScene(new Scene(root, 650, 450));
-        primaryStage.setResizable(false);
-        primaryStage.show();
-        */
     }
 
 

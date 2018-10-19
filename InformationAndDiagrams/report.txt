@@ -1,0 +1,87 @@
+// Tools used in building the program:
+    Initial database setup was performed in the PSQL CLI.
+    The program was coded in Java, using the graphical interface 
+    library JavaFX. SQL commands were issued using the java.sql library.
+
+// Components of the program:
+    The program is built using the MVC-designpattern, with 'controllers' 
+    handling logic, 'views' handling graphical components and 'models' 
+    as objects containing data.
+
+    SQLFiles:
+        The SQL files used to create the database.
+
+    Controllers:
+        Main:
+            Used to start the program. Initializes the first views.
+        
+        MainViewController:
+            Controller for the main 'view' of the program. 
+            Handles logic for the main UI.
+
+        SQLController:
+            Handles database queries.
+            This is a static class that is called by the MainViewController
+            when it needs to insert or retrieve data from the database.
+
+        StartViewController:
+            Controller for the 'start' view. Starts the main program when
+            the user presses 'Start'.
+
+    Models:
+        Band:
+            Represents a band in the database.
+
+        ResponsibilityTable:
+            Represents a table containing the connections between workers
+            and bands / bandmembers.
+
+        SecuritySchedule:
+            Represents the schedule containing the security schedule
+            for the festival.
+
+        StageSchedule:
+            Represents the schedule for the concerts at a specific stage.
+
+        Worker:
+            Represents a worker at the festival.
+
+
+    Resources:
+        Contains images used in the UI.
+
+    Views:
+        Contains the FXML files for JavaFX.
+        These files contain information about the position and function
+        of the graphical interface.
+
+// Description of program use:
+    The user is initially presented with a 'Start' Screen.
+    The user needs to press 'Start' to continue.    
+    The user is now presented with a schedule of the festivals concerts.
+
+    The user can select a tab on the top of the window to change view.
+    The following views exist:
+    Schedule:
+        Contains the schedule for the festivals different scenes.
+
+    Bands:
+        A list of all the bands performing at the festival.
+
+    Administrator:
+        Contains administrator features such as booking a band,
+        assigning a contact person to a band,
+        specifying a concert for a band
+        and hiring a new worker.
+
+    Security:
+        Contains the security schedule for the festival.
+        Shows what worker is responsible for security at 
+        different scenes and times.
+
+    Band Contact:
+        Contains a list of how many band members each worker is
+        a contact person for.
+
+
+
