@@ -10,6 +10,7 @@ INSERT INTO workers VALUES ('1989-04-12', 'Jessica Kransman', 'Flygvägen 2, Yst
 INSERT INTO workers VALUES ('1990-10-23', 'Lilleman Storboi', 'Stor väg 1, Umeå');
 INSERT INTO workers VALUES ('1955-05-13', 'Lycke Fly', 'Litengata 15, Luleå');
 INSERT INTO workers VALUES ('1975-02-12', 'Roligtnamn Namnsson', 'Långsöktgatan 8, Byhåla');
+INSERT INTO workers VALUES ('', 'Roligtnamn Namnsson', 'Långsöktgatan 8, Byhåla');
 
 
 -- Bands
@@ -32,5 +33,23 @@ INSERT INTO scenes VALUES ('The Forum', 1500);
 
 -- Schedule
 INSERT INTO schedule VALUES('2019-05-10', '20:00', 'AC/DC', 'Mallorca');
+INSERT INTO schedule VALUES('2019-05-11', '20:00', 'Led Zeppelin', 'Mallorca');
+INSERT INTO schedule VALUES('2019-05-12', '19:00', 'Pink Floyd', 'The Forum');
+INSERT INTO schedule VALUES('2019-05-10', '21:00', 'The Rolling Stones', 'The Diesel Tent');
 
+-- Bandmembers
+INSERT INTO bandmember VALUES (DEFAULT, 'Namn Namnssonhehe', 'Information om Namn Namnssonhehe');
+INSERT INTO bandmember VALUES (DEFAULT, 'Angus Young', 'Information om Angus Young');
+INSERT INTO bandmember VALUES (DEFAULT, 'Chris Slade', 'Information om Chris Slade');
+INSERT INTO bandmember VALUES (DEFAULT, 'Stevie Young', 'Information om Stevie Young');
+INSERT INTO bandmember VALUES (DEFAULT, 'Axl Rose', 'Information om Axl Rose');
+INSERT INTO bandmember VALUES (DEFAULT, 'Bananaman Tjugoett', 'Info om bananaman!');
 
+-- Bandmember associations
+INSERT INTO bandmember_association VALUES (1, 'AC/DC');
+INSERT INTO bandmember_association VALUES (2, 'AC/DC');
+INSERT INTO bandmember_association VALUES (3, 'AC/DC');
+INSERT INTO bandmember_association VALUES (4, 'AC/DC');
+
+-- Security Schedule
+INSERT INTO security_schedule VALUES ('2019-05-10', '20:00', 'Mallorca', '1969-01-20');

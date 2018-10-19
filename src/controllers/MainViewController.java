@@ -6,9 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.BorderPane;
-import models.Band;
-import models.StageSchedule;
-import models.Worker;
+import models.*;
 
 import javax.xml.soap.Text;
 import java.sql.Date;
@@ -84,6 +82,24 @@ public class MainViewController {
     TextField adminPasswordField;
     @FXML
     Button    loginButton;
+    @FXML
+    Label     loginLabel;
+
+    // ---- Security & worker connections ---- //
+    @FXML
+    TableView securityScheduleTable;
+    @FXML
+    TableView workerContactTable;
+    @FXML
+    ChoiceBox securityStageChoiceBox;
+    @FXML
+    TextField securityTimeField;
+    @FXML
+    ChoiceBox securityDateChoiceBox;
+    @FXML
+    TextField securityPersonNumberField;
+    @FXML
+    Button    securityAddToScheduleButton;
 
     @FXML
     public void initialize() {
@@ -91,6 +107,8 @@ public class MainViewController {
         populateTables();
         populateBandsTable();
         setUpChoiceBoxes();
+        populateSecuritySchedule();
+        populateWorkerContactTable();
     }
 
     private void enableFieldsAndButtons() {
@@ -117,11 +135,21 @@ public class MainViewController {
     newWorkerPersonNumberField.setDisable(false);
     newWorkerAddressField.setDisable(false);
     hireWorkerButton.setDisable(false);
+
+    // Security fields and buttons
+    securityStageChoiceBox.setDisable(false);
+    securityTimeField.setDisable(false);
+    securityDateChoiceBox.setDisable(false);
+    securityPersonNumberField.setDisable(false);
+    securityAddToScheduleButton.setDisable(false);
+
     }
 
     private void setUpChoiceBoxes() {
         specifyConcertDateChoiceBox.getItems().addAll("2018-05-10", "2018-05-11", "2018-05-12");
         stageChoiceBox.getItems().addAll("Mallorca", "The Diesel Tent", "The Forum");
+        securityDateChoiceBox.getItems().addAll("2018-05-10", "2018-05-11", "2018-05-12");
+        securityStageChoiceBox.getItems().addAll("Mallorca", "The Diesel Tent", "The Forum");
     }
 
     /**
@@ -267,17 +295,71 @@ public class MainViewController {
         boolean successfullLogin = SQLController.logIn(adminUsernameField.getText(), adminPasswordField.getText());
         if (successfullLogin) {
             enableFieldsAndButtons();
+            loginLabel.setStyle("-fx-background-color:green;");
+            loginButton.setStyle("-fx-border-color:green;");
+        } else {
+            loginLabel.setStyle("-fx-background-color:red;");
+            loginButton.setStyle("-fx-border-color:red;");
         }
     }
 
+
+    // ---- SECURITY TABLE ---- //
     @FXML
     private void populateSecuritySchedule() {
-        TableColumn worker = new TableColumn("Worker");
+        SecuritySchedule securitySchedule = SQLController.getSecuritySchedule();
+
+        TableColumn dateCol   = new TableColumn("Date");
+        dateCol.setMinWidth(80);
+        dateCol.setCellValueFactory(new PropertyValueFactory<SecuritySchedule, String>("date"));
+
+        TableColumn timeCol   = new TableColumn("Time");
+        timeCol.setMinWidth(80);
+        timeCol.setCellValueFactory(new PropertyValueFactory<SecuritySchedule, String>("time"));
+
+        TableColumn sceneCol = new TableColumn("Scene");
+        sceneCol.setMinWidth(100);
+        sceneCol.setCellValueFactory(new PropertyValueFactory<SecuritySchedule, String>("scene"));
+
+        TableColumn responsibleWorkerNameCol = new TableColumn("Name of responsible worker");
+        responsibleWorkerNameCol.setMinWidth(100);
+        responsibleWorkerNameCol.setCellValueFactory(new PropertyValueFactory<SecuritySchedule, String>("worker_name"));
+
+        TableColumn responsibleWorkerPersonalNumberCol = new TableColumn("Worker personal number");
+        responsibleWorkerPersonalNumberCol.setMinWidth(80);
+        responsibleWorkerPersonalNumberCol.setCellValueFactory(new PropertyValueFactory<SecuritySchedule, String>("worker_personal_number"));
+
+        securityScheduleTable.setItems(securitySchedule.getSchedule());
+        securityScheduleTable.getColumns().addAll(dateCol, timeCol, sceneCol, responsibleWorkerNameCol, responsibleWorkerPersonalNumberCol);
+
+    }
+
+    // ---- CONTACT TABLE ---- //
+    @FXML
+    private void populateWorkerContactTable() {
+        ResponsibilityTable responsibilityTable = SQLController.getResponsibilityCount();
+
+        TableColumn nameCol = new TableColumn("Name of worker");
+        nameCol.setMinWidth(150);
+        nameCol.setCellValueFactory(
+                new PropertyValueFactory<ResponsibilityTable, String>("workerName"));
+
+        TableColumn personNbrCol = new TableColumn("Worker personnumber");
+        personNbrCol.setMinWidth(80);
+        personNbrCol.setCellValueFactory(
+                new PropertyValueFactory<ResponsibilityTable, String>("workerPersonNumber"));
+
+        TableColumn nbrConCol = new TableColumn("Number of contact connections");
+        nbrConCol.setMinWidth(50);
+        nbrConCol.setCellValueFactory(
+                new PropertyValueFactory<SecuritySchedule, String>("responsibilityCount"));
+
+        workerContactTable.setItems(responsibilityTable.getRowList());
+        workerContactTable.getColumns().addAll(nameCol, personNbrCol, nbrConCol);
     }
 
     @FXML
-    private void populateWorkerContactTable() {
-
+    private void addToSecuritySchedule() {
+        SQLController.addToSecurity(securityDateChoiceBox.getSelectionModel().getSelectedItem().toString(), securityTimeField.getText(), securityStageChoiceBox.getSelectionModel().getSelectedItem().toString(), securityPersonNumberField.getText());
     }
-
 }

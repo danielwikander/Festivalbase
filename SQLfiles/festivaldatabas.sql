@@ -51,5 +51,6 @@ CREATE TABLE security_schedule (
     time                    time    NOT NULL,
     scene                   text    NOT NULL REFERENCES scenes,
     responsible_worker      text    NOT NULL REFERENCES workers,
-    PRIMARY KEY (day, time, responsible_worker)
+    PRIMARY KEY (day, time, scene)
 );
+

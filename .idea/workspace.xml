@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="first commit">
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="update">
+      <change afterPath="$PROJECT_DIR$/src/models/ResponsibilityTable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/SecuritySchedule.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SQLfiles/dbqueries.sql" beforeDir="false" afterPath="$PROJECT_DIR$/SQLfiles/dbqueries.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SQLfiles/festivaldatabas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/SQLfiles/festivaldatabas.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SQLfiles/populateDB.sql" beforeDir="false" afterPath="$PROJECT_DIR$/SQLfiles/populateDB.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FestivalBase/controllers/MainViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FestivalBase/controllers/MainViewController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FestivalBase/controllers/SQLController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FestivalBase/controllers/SQLController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FestivalBase/views/mainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FestivalBase/views/mainView.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controllers/MainViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/MainViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/SQLController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/SQLController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/mainView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/mainView.fxml" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
@@ -62,7 +69,7 @@
     <session id="-993231028">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="13" />
+          <entry key="project.closed" value="15" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.3" value="1" />
@@ -70,41 +77,41 @@
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="2" />
           <entry key="project.open.time.8" value="4" />
-          <entry key="project.open.time.9" value="3" />
-          <entry key="project.opened" value="16" />
+          <entry key="project.open.time.9" value="4" />
+          <entry key="project.opened" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="47" />
-          <entry key="fxml" value="66" />
-          <entry key="java" value="17137" />
-          <entry key="sql" value="388" />
-          <entry key="txt" value="12" />
+          <entry key="fxml" value="77" />
+          <entry key="java" value="21592" />
+          <entry key="sql" value="1572" />
+          <entry key="txt" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="17137" />
-          <entry key="PLAIN_TEXT" value="59" />
-          <entry key="SQL" value="388" />
-          <entry key="XML" value="66" />
+          <entry key="JAVA" value="21592" />
+          <entry key="PLAIN_TEXT" value="65" />
+          <entry key="SQL" value="1572" />
+          <entry key="XML" value="77" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="3" />
-          <entry key="fxml" value="10" />
-          <entry key="java" value="17" />
-          <entry key="sql" value="6" />
+          <entry key="fxml" value="13" />
+          <entry key="java" value="29" />
+          <entry key="sql" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="3" />
-          <entry key="JAVA" value="17" />
-          <entry key="SQL" value="6" />
-          <entry key="XML" value="10" />
+          <entry key="JAVA" value="29" />
+          <entry key="SQL" value="12" />
+          <entry key="XML" value="13" />
         </counts>
       </usages-collector>
     </session>
@@ -114,11 +121,32 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SQLfiles/festivaldatabas.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="193">
+              <caret line="33" column="47" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/controllers/SQLController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="239">
+              <caret line="189" column="34" lean-forward="true" selection-start-line="189" selection-start-column="34" selection-end-line="189" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/controllers/MainViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="605">
-              <caret line="274" column="4" selection-start-line="274" selection-start-column="4" selection-end-line="274" selection-end-column="4" />
+            <state relative-caret-position="239">
+              <caret line="102" selection-start-line="102" selection-end-line="102" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -127,10 +155,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SQLfiles/festivaldatabas.sql">
+        <entry file="file://$PROJECT_DIR$/src/models/SecuritySchedule.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="779">
-              <caret line="54" column="2" selection-start-line="54" selection-start-column="2" selection-end-line="54" selection-end-column="2" />
+            <state relative-caret-position="17">
+              <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SQLfiles/populateDB.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="918">
+              <caret line="54" column="83" selection-start-line="54" selection-start-column="83" selection-end-line="54" selection-end-column="83" />
             </state>
           </provider>
         </entry>
@@ -162,7 +202,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/views/mainView.fxml" />
         <option value="$PROJECT_DIR$/src/models/AdminUser.java" />
         <option value="$PROJECT_DIR$/src/views/ScheduleView.fxml" />
         <option value="$PROJECT_DIR$/src/models/Schedule.java" />
@@ -173,8 +212,13 @@
         <option value="$PROJECT_DIR$/src/models/Band.java" />
         <option value="$PROJECT_DIR$/src/models/Worker.java" />
         <option value="$PROJECT_DIR$/src/models/StageSchedule.java" />
-        <option value="$PROJECT_DIR$/src/controllers/SQLController.java" />
+        <option value="$PROJECT_DIR$/src/models/SecuritySchedule.java" />
+        <option value="$PROJECT_DIR$/src/views/mainView.fxml" />
         <option value="$PROJECT_DIR$/SQLfiles/festivaldatabas.sql" />
+        <option value="$PROJECT_DIR$/src/models/ResponsibilityTable.java" />
+        <option value="$PROJECT_DIR$/SQLfiles/dbqueries.sql" />
+        <option value="$PROJECT_DIR$/SQLfiles/populateDB.sql" />
+        <option value="$PROJECT_DIR$/src/controllers/SQLController.java" />
         <option value="$PROJECT_DIR$/src/controllers/MainViewController.java" />
       </list>
     </option>
@@ -183,8 +227,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="33" />
     <option name="y" value="19" />
-    <option name="width" value="971" />
-    <option name="height" value="1028" />
+    <option name="width" value="1854" />
+    <option name="height" value="998" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
@@ -195,6 +239,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -235,7 +280,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -250,7 +294,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539885342041" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539902736263" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -435,17 +479,23 @@
       <option name="project" value="LOCAL" />
       <updated>1539873433763</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update">
+      <created>1539885351413</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1539885351413</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="33" y="19" width="971" height="1028" extended-state="0" />
-    <editor active="true" />
+    <frame x="33" y="19" width="1854" height="998" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.13333334" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.068409346" />
       <window_info id="Structure" order="1" weight="0.24972191" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -454,7 +504,7 @@
       <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3296582" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2987872" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.29874572" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3351709" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -491,21 +541,8 @@
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <MESSAGE value="first commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/controllers/SQLController.java</url>
-          <line>169</line>
-          <properties class="controllers.SQLController" method="logIn">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -521,12 +558,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/sample.fxml" />
     <entry file="file://$PROJECT_DIR$/src/views/startView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="38" selection-start-column="38" selection-end-column="38" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/Controller.java" />
     <entry file="file://$PROJECT_DIR$/src/controllers/StartViewController.java">
@@ -536,13 +573,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/SystemAdministrator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -563,52 +593,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SQLfiles/dbqueries.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="5" column="68" selection-start-line="5" selection-start-column="68" selection-end-line="5" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/ScheduleViewController.java" />
     <entry file="file://$PROJECT_DIR$/src/views/scheduleView.fxml" />
-    <entry file="file://$PROJECT_DIR$/src/models/Worker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-          <folding>
-            <element signature="e#444#445#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/controllers/SQLController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2822">
-          <caret line="169" column="26" selection-start-line="169" selection-start-column="26" selection-end-line="169" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/mainView.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/StageSchedule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
+        <state>
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#954#955#0" expanded="true" />
             <element signature="e#989#990#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/SystemAdministrator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -619,20 +620,87 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/ResponsibilityTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#540#541#0" expanded="true" />
+            <element signature="e#576#577#0" expanded="true" />
+            <element signature="e#269#270#0" expanded="true" />
+            <element signature="e#333#334#0" expanded="true" />
+            <element signature="e#380#381#0" expanded="true" />
+            <element signature="e#436#437#0" expanded="true" />
+            <element signature="e#489#490#0" expanded="true" />
+            <element signature="e#554#555#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/Worker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+          <folding>
+            <element signature="e#444#445#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/mainView.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="238" column="50" selection-start-line="238" selection-start-column="50" selection-end-line="238" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SQLfiles/dbqueries.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="61" lean-forward="true" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SQLfiles/populateDB.sql">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="54" column="83" selection-start-line="54" selection-start-column="83" selection-end-line="54" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/SecuritySchedule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SQLfiles/festivaldatabas.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="779">
-          <caret line="54" column="2" selection-start-line="54" selection-start-column="2" selection-end-line="54" selection-end-column="2" />
+        <state relative-caret-position="193">
+          <caret line="33" column="47" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/controllers/SQLController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="189" column="34" lean-forward="true" selection-start-line="189" selection-start-column="34" selection-end-line="189" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/controllers/MainViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="274" column="4" selection-start-line="274" selection-start-column="4" selection-end-line="274" selection-end-column="4" />
+        <state relative-caret-position="239">
+          <caret line="102" selection-start-line="102" selection-end-line="102" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

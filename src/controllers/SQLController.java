@@ -34,10 +34,11 @@ public class SQLController {
         }
     }
 
+
     /**
      * Adds a new worker to the database.
      */
-     private static void addWorker(Worker worker) {
+    /* private static void addWorker(Worker worker) {
         try {
             PreparedStatement stmt = dbConnection.prepareStatement("INSERT INTO " +
                     "workers(person_number, name, address) " +
@@ -50,13 +51,13 @@ public class SQLController {
             System.out.println("Couldn't add worker to DB");
             e.printStackTrace();
         }
-    }
+    }*/
 
 
     /**
      * Assigns a contact person to a band.
      */
-     private static void assignContactPerson(Worker worker, Band band) {
+    /* private static void assignContactPerson(Worker worker, Band band) {
         try {
             PreparedStatement stmt = dbConnection.prepareStatement("INSERT INTO " +
                     "bands(contact_person_id) " +
@@ -68,6 +69,31 @@ public class SQLController {
             System.out.println("Couldn't add contact person to DB");
             e.printStackTrace();
         }
+    }*/
+
+    public static ResponsibilityTable getResponsibilityCount() {
+        ResponsibilityTable responsibilityTable = new ResponsibilityTable();
+        try {
+            PreparedStatement stmt = dbConnection.prepareStatement("SELECT w.person_number, w.name, " +
+                    "COUNT (ba.bandmember_id) AS contact_connections " +
+                    "FROM workers w " +
+                    "INNER JOIN bands b ON w.person_number = b.contact_person_id " +
+                    "INNER JOIN bandmember_association ba ON b.band_name = ba.band " +
+                    "GROUP BY w.person_number, w.name");
+            ResultSet rs = stmt.executeQuery();
+
+            while(rs.next()) {
+                String workerPersonNumber = rs.getString("person_number");
+                String workerName         = rs.getString("name");
+                int    count              = rs.getInt("contact_connections");
+                responsibilityTable.addNewRow(workerPersonNumber,workerName, count);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Couldn't retrieve responsibilitytable");
+        }
+        return responsibilityTable;
     }
 
     /**
@@ -100,10 +126,34 @@ public class SQLController {
             System.out.println("Couldn't retrieve" + stagename + "schedule.");
             e.printStackTrace();
         }
-        // Print for testing purporses
-        System.out.println(schedule);
-
         return schedule;
+    }
+
+    public static SecuritySchedule getSecuritySchedule() {
+        SecuritySchedule securitySchedule = new SecuritySchedule();
+        try {
+            PreparedStatement stmt = dbConnection.prepareStatement("SELECT " +
+                    "security_schedule.day, security_schedule.time, security_schedule.scene, " +
+                    "security_schedule.responsible_worker, workers.name " +
+                    "FROM security_schedule INNER JOIN workers ON workers.person_number = security_schedule.responsible_worker");
+            ResultSet rs = stmt.executeQuery();
+
+            // Returns values while there are still rows in the retrieved dataset.
+            // If only a single row is expected, use an if-statement instead.
+            while(rs.next()) {
+                String date              = rs.getString("day");
+                String time              = rs.getString("time");
+                String scene             = rs.getString("scene");
+                String responsibleWorker = rs.getString("responsible_worker");
+                String name              = rs.getString("Name");
+                securitySchedule.newTimeSlice(date, time, scene, responsibleWorker, name);
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Couldn't retrieve security schedule.");
+            e.printStackTrace();
+        }
+        return securitySchedule;
     }
 
     public static ObservableList<Band> getBands() {
@@ -124,6 +174,23 @@ public class SQLController {
             System.out.println("Couldn't retrieve bands from db.");
         }
         return bandList;
+    }
+
+       public static void addToSecurity(String dateToAdd, String timeToAdd, String scene, String workerPersonNumber)  {
+        try {
+            Date date = java.sql.Date.valueOf(dateToAdd);
+            Time time = java.sql.Time.valueOf(timeToAdd + ":00");
+            PreparedStatement stmt = dbConnection.prepareStatement("INSERT INTO security_schedule " +
+                    "VALUES(?,?,?,?)");
+            stmt.setDate(1, date);
+            stmt.setTime(2, time);
+            stmt.setString(3, scene);
+            stmt.setString(4, workerPersonNumber);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Couldn't add " + workerPersonNumber + "to security table");
+        }
     }
 
     public static void assignContactPerson(String bandName, String contactPersonID)  {
