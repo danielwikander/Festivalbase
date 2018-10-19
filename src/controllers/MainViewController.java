@@ -43,7 +43,7 @@ public class MainViewController {
     @FXML
     TextField band_infoField;
     @FXML
-    Button    bookBandButton;
+    Button bookBandButton;
 
     // Assign a contact stuff
     @FXML
@@ -51,7 +51,7 @@ public class MainViewController {
     @FXML
     TextField assign_band_nameField;
     @FXML
-    Button    assignContactPersonButton;
+    Button assignContactPersonButton;
 
     // Specify concert stuff
     @FXML
@@ -63,7 +63,7 @@ public class MainViewController {
     @FXML
     ChoiceBox stageChoiceBox;
     @FXML
-    Button    specifyConcertButton;
+    Button specifyConcertButton;
 
     // Hire worker stuff
     @FXML
@@ -73,7 +73,7 @@ public class MainViewController {
     @FXML
     TextField newWorkerAddressField;
     @FXML
-    Button    hireWorkerButton;
+    Button hireWorkerButton;
 
     // Login stuff
     @FXML
@@ -81,9 +81,9 @@ public class MainViewController {
     @FXML
     TextField adminPasswordField;
     @FXML
-    Button    loginButton;
+    Button loginButton;
     @FXML
-    Label     loginLabel;
+    Label loginLabel;
 
     // ---- Security & worker connections ---- //
     @FXML
@@ -99,7 +99,7 @@ public class MainViewController {
     @FXML
     TextField securityPersonNumberField;
     @FXML
-    Button    securityAddToScheduleButton;
+    Button securityAddToScheduleButton;
 
     @FXML
     public void initialize() {
@@ -114,34 +114,34 @@ public class MainViewController {
     private void enableFieldsAndButtons() {
         // Add band buttons and fields
         band_nameField.setDisable(false);
-    band_country_of_originField.setDisable(false);
-    band_contact_person_idField.setDisable(false);
-    band_infoField.setDisable(false);
-    bookBandButton.setDisable(false);
+        band_country_of_originField.setDisable(false);
+        band_contact_person_idField.setDisable(false);
+        band_infoField.setDisable(false);
+        bookBandButton.setDisable(false);
 
-    // Assign a contact buttons and fields
-    assign_contact_person_idField.setDisable(false);
-    assign_band_nameField.setDisable(false);
-    assignContactPersonButton.setDisable(false);
+        // Assign a contact buttons and fields
+        assign_contact_person_idField.setDisable(false);
+        assign_band_nameField.setDisable(false);
+        assignContactPersonButton.setDisable(false);
 
-    // Specify concert buttons and fields
-    specify_concert_band_nameField.setDisable(false);
-    specifyConcertTimeField.setDisable(false);
-    specifyConcertDateChoiceBox.setDisable(false);
-    stageChoiceBox.setDisable(false);
-    specifyConcertButton.setDisable(false);
-    // Hire worker buttons and fields
-    newWorkerNameField.setDisable(false);
-    newWorkerPersonNumberField.setDisable(false);
-    newWorkerAddressField.setDisable(false);
-    hireWorkerButton.setDisable(false);
+        // Specify concert buttons and fields
+        specify_concert_band_nameField.setDisable(false);
+        specifyConcertTimeField.setDisable(false);
+        specifyConcertDateChoiceBox.setDisable(false);
+        stageChoiceBox.setDisable(false);
+        specifyConcertButton.setDisable(false);
+        // Hire worker buttons and fields
+        newWorkerNameField.setDisable(false);
+        newWorkerPersonNumberField.setDisable(false);
+        newWorkerAddressField.setDisable(false);
+        hireWorkerButton.setDisable(false);
 
-    // Security fields and buttons
-    securityStageChoiceBox.setDisable(false);
-    securityTimeField.setDisable(false);
-    securityDateChoiceBox.setDisable(false);
-    securityPersonNumberField.setDisable(false);
-    securityAddToScheduleButton.setDisable(false);
+        // Security fields and buttons
+        securityStageChoiceBox.setDisable(false);
+        securityTimeField.setDisable(false);
+        securityDateChoiceBox.setDisable(false);
+        securityPersonNumberField.setDisable(false);
+        securityAddToScheduleButton.setDisable(false);
 
     }
 
@@ -232,7 +232,7 @@ public class MainViewController {
 
 
     // ---- Bands table ---- //
-    private void populateBandsTable()  {
+    private void populateBandsTable() {
         ObservableList<Band> bands = SQLController.getBands();
         TableColumn band_nameCol = new TableColumn("Band Name");
         band_nameCol.setMinWidth(150);
@@ -244,7 +244,7 @@ public class MainViewController {
         band_country_of_originCol.setCellValueFactory(
                 new PropertyValueFactory<Band, String>("band_country_of_origin"));
 
-        TableColumn band_infoCol= new TableColumn("Info");
+        TableColumn band_infoCol = new TableColumn("Info");
         band_infoCol.setMinWidth(250);
         band_infoCol.setCellValueFactory(
                 new PropertyValueFactory<Band, String>("band_info"));
@@ -258,12 +258,12 @@ public class MainViewController {
     @FXML
     private void bookBand() {
         Band bandToAdd;
-        if(band_contact_person_idField.getText() == null) {
+        if (band_contact_person_idField.getText() == null) {
             bandToAdd = new Band(band_nameField.getText(), band_country_of_originField.getText(), band_infoField.getText(), null);
         } else {
             bandToAdd = new Band(band_nameField.getText(), band_country_of_originField.getText(), band_infoField.getText(), band_contact_person_idField.getText());
         }
-       SQLController.addBand(bandToAdd);
+        SQLController.addBand(bandToAdd);
     }
 
     @FXML
@@ -286,7 +286,7 @@ public class MainViewController {
 
     @FXML
     private void hireWorker() {
-        Worker newWorker =  new Worker(newWorkerPersonNumberField.getText(), newWorkerNameField.getText(), newWorkerAddressField.getText());
+        Worker newWorker = new Worker(newWorkerPersonNumberField.getText(), newWorkerNameField.getText(), newWorkerAddressField.getText());
         SQLController.hireWorker(newWorker);
     }
 
@@ -309,11 +309,11 @@ public class MainViewController {
     private void populateSecuritySchedule() {
         SecuritySchedule securitySchedule = SQLController.getSecuritySchedule();
 
-        TableColumn dateCol   = new TableColumn("Date");
+        TableColumn dateCol = new TableColumn("Date");
         dateCol.setMinWidth(80);
         dateCol.setCellValueFactory(new PropertyValueFactory<SecuritySchedule, String>("date"));
 
-        TableColumn timeCol   = new TableColumn("Time");
+        TableColumn timeCol = new TableColumn("Time");
         timeCol.setMinWidth(80);
         timeCol.setCellValueFactory(new PropertyValueFactory<SecuritySchedule, String>("time"));
 

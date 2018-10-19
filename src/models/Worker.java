@@ -10,8 +10,8 @@ public class Worker {
 
     public Worker(String person_number, String name, String address) {
         this.person_number = person_number;
-        this.name          = name;
-        this.address       = address;
+        this.name = name;
+        this.address = address;
     }
 
     public Worker(String person_number) {
