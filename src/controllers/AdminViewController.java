@@ -108,6 +108,9 @@ public class AdminViewController {
         populateWorkerTable();
     }
 
+    /**
+     * Enables all the fields and buttons when an administrator has logged in.
+     */
     private void enableFieldsAndButtons() {
         // Add band buttons and fields
         band_nameField.setDisable(false);
@@ -147,6 +150,9 @@ public class AdminViewController {
         addBandMemberButton.setDisable(false);
     }
 
+    /**
+     * Sets up the choices in the UI choiceboxes.
+     */
     private void setUpChoiceBoxes() {
         specifyConcertDateChoiceBox.getItems().addAll("2018-05-10", "2018-05-11", "2018-05-12");
         stageChoiceBox.getItems().addAll("Mallorca", "The Diesel Tent", "The Forum");
@@ -309,6 +315,9 @@ public class AdminViewController {
         workerContactTable.getColumns().addAll(nameCol, personNbrCol, nbrConCol);
     }
 
+    /**
+     * Assigns a worker to be responsible for security at a certain time and place.
+     */
     @FXML
     private void addToSecuritySchedule() {
         SQLController.addToSecurity(securityDateChoiceBox.getSelectionModel().getSelectedItem().toString(),

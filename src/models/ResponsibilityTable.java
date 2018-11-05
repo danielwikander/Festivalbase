@@ -3,6 +3,9 @@ package models;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+/**
+ * Represents a table showing what worker is responsible for what band.
+ */
 public class ResponsibilityTable {
     private ObservableList<responsibilityRow> rows = FXCollections.observableArrayList();
 
