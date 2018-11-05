@@ -14,6 +14,7 @@ public class Main extends Application {
 
     private static Stage primaryStage;
     private static AnchorPane mainLayout;
+    private static AnchorPane adminLayout;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -48,6 +49,23 @@ public class Main extends Application {
                 e.printStackTrace();
             }
             Scene scene = new Scene(mainLayout);
+            primaryStage.setScene(scene);
+            primaryStage.setResizable(false);
+            primaryStage.show();
+
+        });
+    }
+
+    public static void showAdminLayout() {
+        Platform.runLater(() -> {
+            try {
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(Main.class.getResource("/views/adminView.fxml"));
+                adminLayout = loader.load();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            Scene scene = new Scene(adminLayout);
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
             primaryStage.show();

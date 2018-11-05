@@ -22,7 +22,8 @@ public class StartViewController {
     @FXML
     private void startAdminApp() throws IOException {
         System.out.println("Started admin app");
-        //Main.showAdminLayout();
+        SQLController.dbConnect();
+        Main.showAdminLayout();
     }
 
 }

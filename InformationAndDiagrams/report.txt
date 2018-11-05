@@ -4,7 +4,7 @@
     library JavaFX. SQL commands were issued using the java.sql library.
 
 // Components of the program:
-    The program is built using the MVC-designpattern, with 'controllers' 
+    The program is built using the MVC designpattern, with 'controllers'
     handling logic, 'views' handling graphical components and 'models' 
     as objects containing data.
 

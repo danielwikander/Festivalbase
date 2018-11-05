@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -19,11 +20,15 @@
             <ImageView fx:id="startButton" fitHeight="150.0" fitWidth="325.0" onMouseClicked="#startNormalApp" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../resources/startButton.png" />
-               </image></ImageView>
+               </image>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></ImageView>
             <ImageView fx:id="adminButton" fitHeight="150.0" fitWidth="325.0" onMouseClicked="#startAdminApp" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../resources/adminButton.png" />
-               </image></ImageView>
+               </image>
+            </ImageView>
          </children>
       </HBox>
    </children>

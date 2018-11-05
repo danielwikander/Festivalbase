@@ -30,6 +30,7 @@ public class SQLController {
             stmt.setString(3, band.getBand_info());
             stmt.setString(4, band.getContact_person_id());
             stmt.executeUpdate();
+            stmt.close();
         } catch (SQLException e) {
             System.out.println("Couldn't add band to DB");
             e.printStackTrace();
@@ -53,7 +54,8 @@ public class SQLController {
                 int count = rs.getInt("contact_connections");
                 responsibilityTable.addNewRow(workerPersonNumber, workerName, count);
             }
-
+            stmt.close();
+            rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Couldn't retrieve responsibilitytable");
@@ -87,7 +89,8 @@ public class SQLController {
                 String band_playing = rs.getString("band_playing");
                 schedule.newTimeSlice(date, time, band_playing);
             }
-
+            stmt.close();
+            rs.close();
         } catch (SQLException e) {
             System.out.println("Couldn't retrieve" + stagename + "schedule.");
             e.printStackTrace();
@@ -114,7 +117,8 @@ public class SQLController {
                 String name = rs.getString("Name");
                 securitySchedule.newTimeSlice(date, time, scene, responsibleWorker, name);
             }
-
+            stmt.close();
+            rs.close();
         } catch (SQLException e) {
             System.out.println("Couldn't retrieve security schedule.");
             e.printStackTrace();
@@ -135,6 +139,8 @@ public class SQLController {
                 String contact_person_id = rs.getString("contact_person_id");
                 bandList.add(new Band(band_name, band_country_of_origin, band_info, contact_person_id));
             }
+            stmt.close();
+            rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Couldn't retrieve bands from db.");
@@ -153,6 +159,7 @@ public class SQLController {
             stmt.setString(3, scene);
             stmt.setString(4, workerPersonNumber);
             stmt.executeUpdate();
+            stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Couldn't add " + workerPersonNumber + "to security table");
@@ -167,6 +174,7 @@ public class SQLController {
             stmt.setString(1, contactPersonID);
             stmt.setString(2, bandName);
             stmt.executeUpdate();
+            stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Couldn't assign contact person to " + bandName);
@@ -181,6 +189,7 @@ public class SQLController {
             stmt.setString(3, band_name);
             stmt.setString(4, stage);
             stmt.executeUpdate();
+            stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Couldn't book concert.");
@@ -194,6 +203,7 @@ public class SQLController {
             stmt.setString(2, workerToHire.getName());
             stmt.setString(3, workerToHire.getAddress());
             stmt.executeUpdate();
+            stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
             System.out.println("Couldnt add worker" + workerToHire.getName());
@@ -209,6 +219,9 @@ public class SQLController {
             if (rs.next()) {
                 return true;
             }
+            stmt.close();
+            rs.close();
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
