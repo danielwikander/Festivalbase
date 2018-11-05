@@ -24,6 +24,10 @@ public class MainViewController {
     @FXML
     TableView bandsTable;
 
+    /**
+     * This method is called when the view is initialized. It connects to the database
+     * and populates the tables with information.
+     */
     @FXML
     public void initialize() {
         SQLController.dbConnect();
@@ -62,7 +66,6 @@ public class MainViewController {
         mallorcaSchedule.setItems(mallorca.getSchedule());
         mallorcaSchedule.getColumns().addAll(dateCol, timeCol, bandCol);
     }
-
 
     private void populateDieselSchedule() {
         StageSchedule dieselTent = SQLController.getSchedule("The Diesel Tent");
@@ -108,7 +111,6 @@ public class MainViewController {
         theForumSchedule.setItems(theForum.getSchedule());
         theForumSchedule.getColumns().addAll(dateCol, timeCol, bandCol);
     }
-
 
     // ---- Bands table ---- //
     private void populateBandsTable() {

@@ -16,17 +16,20 @@
             Used to start the program. Initializes the first views.
         
         MainViewController:
-            Controller for the main 'view' of the program. 
+            Controller for the main 'view' of the program.
+            This is the view that is presented to normal users
+            wishing to see the festival schedule.
             Handles logic for the main UI.
 
         SQLController:
             Handles database queries.
-            This is a static class that is called by the MainViewController
-            when it needs to insert or retrieve data from the database.
+            This is a static class that is called by the other controllers
+            when they need to insert or retrieve data from the database.
 
         StartViewController:
-            Controller for the 'start' view. Starts the main program when
-            the user presses 'Start'.
+            Controller for the 'start' view. Starts the normal schedule program if
+            the user presses 'Start', and starts the administrator program if
+            the user presses 'Admin'.
 
     Models:
         Band:
@@ -53,21 +56,25 @@
     Views:
         Contains the FXML files for JavaFX.
         These files contain information about the position and function
-        of the graphical interface.
+        of the graphical interface and its elements.
 
 // Description of program use:
     The user is initially presented with a 'Start' Screen.
-    The user needs to press 'Start' to continue.    
-    The user is now presented with a schedule of the festivals concerts.
+    If the user clicks on 'Start', the schedule view will be presented where
+    the user can see the festival schedule and all the bands attending the festival.
+    If the user clicks on 'Admin', the user is taken to the administrator program.
 
-    The user can select a tab on the top of the window to change view.
+    In both programs the user can select a tab on the top of the window to change view.
+
     The following views exist:
+    The normal user can see the following tabs:
     Schedule:
         Contains the schedule for the festivals different scenes.
 
     Bands:
         A list of all the bands performing at the festival.
 
+    Administrators will see the following tabs:
     Administrator:
         Contains administrator features such as booking a band,
         assigning a contact person to a band,
@@ -78,6 +85,9 @@
         Contains the security schedule for the festival.
         Shows what worker is responsible for security at 
         different scenes and times.
+
+    Workers:
+        Contains a list of all the workers at the festival.
 
     Band Contact:
         Contains a list of how many band members each worker is

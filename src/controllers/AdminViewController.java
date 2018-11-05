@@ -4,7 +4,6 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.BorderPane;
 import models.*;
 
 import java.sql.Date;
@@ -48,6 +47,14 @@ public class AdminViewController {
     @FXML
     Button specifyConcertButton;
 
+    // Add new bandmember stuff
+    @FXML
+    TextField newBandMemberNameField;
+    @FXML
+    TextField newBandMemberInfoField;
+    @FXML
+    Button addBandMemberButton;
+
     // Hire worker stuff
     @FXML
     TextField newWorkerNameField;
@@ -62,7 +69,7 @@ public class AdminViewController {
     @FXML
     TextField adminUsernameField;
     @FXML
-    TextField adminPasswordField;
+    PasswordField adminPasswordField;
     @FXML
     Button loginButton;
     @FXML
@@ -84,12 +91,21 @@ public class AdminViewController {
     @FXML
     Button securityAddToScheduleButton;
 
+    // ---- Worker table ---- //
+    @FXML
+    TableView workerTable;
+
+    /**
+     * This method is called when the view is initialized.
+     * It connects to the database and populates the UI with information.
+     */
     @FXML
     public void initialize() {
         SQLController.dbConnect();
         setUpChoiceBoxes();
         populateSecuritySchedule();
         populateWorkerContactTable();
+        populateWorkerTable();
     }
 
     private void enableFieldsAndButtons() {
@@ -111,6 +127,7 @@ public class AdminViewController {
         specifyConcertDateChoiceBox.setDisable(false);
         stageChoiceBox.setDisable(false);
         specifyConcertButton.setDisable(false);
+
         // Hire worker buttons and fields
         newWorkerNameField.setDisable(false);
         newWorkerPersonNumberField.setDisable(false);
@@ -124,6 +141,10 @@ public class AdminViewController {
         securityPersonNumberField.setDisable(false);
         securityAddToScheduleButton.setDisable(false);
 
+        // New bandmember fields and buttons
+        newBandMemberInfoField.setDisable(false);
+        newBandMemberNameField.setDisable(false);
+        addBandMemberButton.setDisable(false);
     }
 
     private void setUpChoiceBoxes() {
@@ -135,6 +156,9 @@ public class AdminViewController {
 
     // ---- Administrator tab ---- //
 
+    /**
+     * Books a band
+     */
     @FXML
     private void bookBand() {
         Band bandToAdd;
@@ -152,6 +176,9 @@ public class AdminViewController {
         SQLController.addBand(bandToAdd);
     }
 
+    /**
+     * Assigns a contact person to a band.
+     */
     @FXML
     private void assignContactPerson() {
         String workerToAssign = assign_contact_person_idField.getText();
@@ -159,6 +186,9 @@ public class AdminViewController {
         SQLController.assignContactPerson(bandToAssign, workerToAssign);
     }
 
+    /**
+     * Adds a concert to the database.
+     */
     @FXML
     private void specifyConcert() {
         String bandToPlay = specify_concert_band_nameField.getText();
@@ -170,6 +200,9 @@ public class AdminViewController {
         SQLController.specifyConcert(date, time, bandToPlay, stageToPlay);
     }
 
+    /**
+     * Adds a worker to the database.
+     */
     @FXML
     private void hireWorker() {
         Worker newWorker = new Worker(newWorkerPersonNumberField.getText(),
@@ -178,6 +211,17 @@ public class AdminViewController {
         SQLController.hireWorker(newWorker);
     }
 
+    /**
+     * Adds a bandmember to the database.
+     */
+    @FXML
+    private void addBandMember() {
+        SQLController.addBandMember(newBandMemberNameField.getText(), newBandMemberInfoField.getText());
+    }
+
+    /**
+     * Attemts to log in as admin.
+     */
     @FXML
     private void logIn() {
         boolean successfullLogin = SQLController.logIn(adminUsernameField.getText(), adminPasswordField.getText());
@@ -190,7 +234,6 @@ public class AdminViewController {
             loginButton.setStyle("-fx-border-color:red;");
         }
     }
-
 
     // ---- SECURITY TABLE ---- //
     @FXML
@@ -220,6 +263,26 @@ public class AdminViewController {
         securityScheduleTable.setItems(securitySchedule.getSchedule());
         securityScheduleTable.getColumns().addAll(dateCol, timeCol, sceneCol, responsibleWorkerNameCol, responsibleWorkerPersonalNumberCol);
 
+    }
+    // ---- WORKER TABLE ---- //
+    @FXML
+    private void populateWorkerTable() {
+        ObservableList<Worker> workers = SQLController.getWorkers();
+
+        TableColumn nameCol = new TableColumn("Name");
+        nameCol.setMinWidth(80);
+        nameCol.setCellValueFactory(new PropertyValueFactory<SecuritySchedule, String>("name"));
+
+        TableColumn addressCol = new TableColumn("Address");
+        addressCol.setMinWidth(80);
+        addressCol.setCellValueFactory(new PropertyValueFactory<SecuritySchedule, String>("address"));
+
+        TableColumn personnbrCol = new TableColumn("Personalnumber");
+        personnbrCol.setMinWidth(120);
+        personnbrCol.setCellValueFactory(new PropertyValueFactory<SecuritySchedule, String>("person_number"));
+
+        workerTable.setItems(workers);
+        workerTable.getColumns().addAll(nameCol, addressCol, personnbrCol);
     }
 
     // ---- CONTACT TABLE ---- //

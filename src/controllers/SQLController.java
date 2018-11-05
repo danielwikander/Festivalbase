@@ -37,6 +37,28 @@ public class SQLController {
         }
     }
 
+    /**
+     * Adds a bandmember to the database.
+     * @param name  The name of the bandmember.
+     * @param info  Additional information about the bandmember.
+     */
+    public static void addBandMember(String name, String info) {
+        try {
+            PreparedStatement stmt = dbConnection.prepareStatement("INSERT INTO bandmember " +
+                    "VALUES (DEFAULT, ?, ?)");
+            stmt.setString(1, name);
+            stmt.setString(2, info);
+            stmt.executeUpdate();
+            stmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Retrieves information about how many individual bandmembers each worker is responsible for.
+     * @return  The table with the retrieved information.
+     */
     public static ResponsibilityTable getResponsibilityCount() {
         ResponsibilityTable responsibilityTable = new ResponsibilityTable();
         try {
@@ -98,6 +120,11 @@ public class SQLController {
         return schedule;
     }
 
+    /**
+     * Retrieves the security schedule which contains information about which worker
+     * is responsible for security at a certain time and place.
+     * @return The security schedule.
+     */
     public static SecuritySchedule getSecuritySchedule() {
         SecuritySchedule securitySchedule = new SecuritySchedule();
         try {
@@ -126,6 +153,10 @@ public class SQLController {
         return securitySchedule;
     }
 
+    /**
+     * Retrieves a list of all the bands playing at the festival.
+     * @return  The list of bands playing at the festival.
+     */
     public static ObservableList<Band> getBands() {
         ObservableList<Band> bandList = FXCollections.observableArrayList();
         try {
@@ -148,6 +179,38 @@ public class SQLController {
         return bandList;
     }
 
+    /**
+     * Retrieves a list of all the workers working at the festival.
+     * @return  The list of workers.
+     */
+    public static ObservableList<Worker> getWorkers() {
+        ObservableList<Worker> workerList = FXCollections.observableArrayList();
+        try {
+            PreparedStatement stmt = dbConnection.prepareStatement("SELECT * FROM workers");
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                String worker_name = rs.getString("name");
+                String worker_address = rs.getString("address");
+                String worker_pbr = rs.getString("person_number");
+                workerList.add(new Worker(worker_pbr, worker_name, worker_address));
+            }
+            stmt.close();
+            rs.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("Couldn't retrieve bands from db.");
+        }
+        return workerList;
+    }
+
+    /**
+     * Schedules a worker to work as security at a specific time and place at the festival.
+     * @param dateToAdd             The date the worker will work.
+     * @param timeToAdd             The time the worker will work.
+     * @param scene                 What scene the worker will be responsible for.
+     * @param workerPersonNumber    The workers personal number.
+     */
     public static void addToSecurity(String dateToAdd, String timeToAdd, String scene, String workerPersonNumber) {
         try {
             Date date = java.sql.Date.valueOf(dateToAdd);
@@ -166,6 +229,11 @@ public class SQLController {
         }
     }
 
+    /**
+     * Assigns a worker as a contact person to a band.
+     * @param bandName          The band to assign the worker to.
+     * @param contactPersonID   The worker that will be responsible for the band.
+     */
     public static void assignContactPerson(String bandName, String contactPersonID) {
         try {
             PreparedStatement stmt = dbConnection.prepareStatement("UPDATE bands " +
@@ -181,6 +249,13 @@ public class SQLController {
         }
     }
 
+    /**
+     * Adds a concert to the festival database.
+     * @param dayToPlay     The day that the concert will take place.
+     * @param timeToPlay    The time that the concert will take place.
+     * @param band_name     The band that will play at the concert.
+     * @param stage         The stage that the band will play at.
+     */
     public static void specifyConcert(Date dayToPlay, Time timeToPlay, String band_name, String stage) {
         try {
             PreparedStatement stmt = dbConnection.prepareStatement("INSERT INTO schedule VALUES(?, ?, ?, ?)");
@@ -196,6 +271,10 @@ public class SQLController {
         }
     }
 
+    /**
+     * Hires a worker to work at the festival.
+     * @param workerToHire  The new worker to add.
+     */
     public static void hireWorker(Worker workerToHire) {
         try {
             PreparedStatement stmt = dbConnection.prepareStatement("INSERT INTO workers VALUES(?, ?, ?)");
@@ -210,6 +289,12 @@ public class SQLController {
         }
     }
 
+    /**
+     * Attempts to log in as a system administrator.
+     * @param username  The admin username.
+     * @param password  The admin password.
+     * @return          True if the login was successfull.
+     */
     public static boolean logIn(String username, String password) {
         try {
             PreparedStatement stmt = dbConnection.prepareStatement("SELECT username, password FROM system_administrators WHERE username = ? AND password = ?");
