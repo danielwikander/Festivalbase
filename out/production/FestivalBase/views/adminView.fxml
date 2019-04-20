@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdminViewController">
+   <children>
+      <TabPane layoutY="-1.0" prefHeight="800.0" prefWidth="900.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Administrator">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="1.0" layoutY="4.0" prefHeight="860.0" prefWidth="900.0">
+                           <children>
+                              <HBox prefHeight="50.0" prefWidth="750.0">
+                                 <children>
+                                    <Label prefHeight="50.0" prefWidth="92.0" text="Log in">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                    <Label fx:id="loginLabel" prefHeight="50.0" prefWidth="110.0">
+                                       <font>
+                                          <Font size="24.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="32.0" prefWidth="750.0">
+                                 <children>
+                                    <TextField fx:id="adminUsernameField" prefWidth="200.0" promptText="Admin username" />
+                                    <PasswordField fx:id="adminPasswordField" prefWidth="200.0" promptText="Admin Password">
+                                       <HBox.margin>
+                                          <Insets left="75.0" />
+                                       </HBox.margin>
+                                    </PasswordField>
+                                 </children>
+                              </HBox>
+                              <Button fx:id="loginButton" mnemonicParsing="false" onAction="#logIn" text="Log in" />
+                              <Label prefHeight="50.0" prefWidth="900.0" text="Book a band">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <HBox prefHeight="32.0" prefWidth="900.0">
+                                 <children>
+                                    <TextField fx:id="band_nameField" disable="true" prefHeight="25.0" prefWidth="200.0" promptText="Name of the band">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="band_country_of_originField" disable="true" prefHeight="25.0" prefWidth="200.0" promptText="Country of origin">
+                                       <HBox.margin>
+                                          <Insets left="75.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="band_contact_person_idField" disable="true" prefHeight="25.0" prefWidth="200.0" promptText="Contact person ID (if any)">
+                                       <HBox.margin>
+                                          <Insets left="75.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <TextField fx:id="band_infoField" disable="true" prefHeight="50.0" prefWidth="823.0" promptText="Band information" />
+                              <Button fx:id="bookBandButton" disable="true" mnemonicParsing="false" onAction="#bookBand" text="Book band">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Label contentDisplay="CENTER" prefHeight="50.0" prefWidth="750.0" text="Assign a contact person" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <HBox prefHeight="31.0" prefWidth="750.0">
+                                 <children>
+                                    <TextField fx:id="assign_band_nameField" disable="true" prefWidth="200.0" promptText="Band name">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="assign_contact_person_idField" disable="true" prefWidth="200.0" promptText="Contact person">
+                                       <HBox.margin>
+                                          <Insets left="75.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <Button fx:id="assignContactPersonButton" disable="true" mnemonicParsing="false" onAction="#assignContactPerson" text="Assign contact person" />
+                              <Label contentDisplay="CENTER" prefHeight="50.0" prefWidth="750.0" text="Specify concert for a band" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <HBox prefHeight="31.0" prefWidth="750.0">
+                                 <children>
+                                    <TextField fx:id="specify_concert_band_nameField" disable="true" onAction="#specifyConcert" prefWidth="200.0" promptText="Band name" />
+                                    <ChoiceBox fx:id="specifyConcertDateChoiceBox" disable="true" prefWidth="200.0">
+                                       <HBox.margin>
+                                          <Insets left="75.0" />
+                                       </HBox.margin>
+                                    </ChoiceBox>
+                                    <TextField fx:id="specifyConcertTimeField" disable="true" prefWidth="200.0" promptText="Time (hh:mm)">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <HBox.margin>
+                                          <Insets left="75.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <ChoiceBox fx:id="stageChoiceBox" disable="true" prefWidth="200.0" />
+                              <Button fx:id="specifyConcertButton" disable="true" mnemonicParsing="false" onAction="#specifyConcert" text="Specify concert">
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Label contentDisplay="CENTER" prefHeight="50.0" prefWidth="750.0" text="Hire new worker" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <HBox prefHeight="31.0" prefWidth="750.0">
+                                 <children>
+                                    <TextField fx:id="newWorkerNameField" disable="true" prefWidth="200.0" promptText="Name of worker">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="newWorkerPersonNumberField" disable="true" prefWidth="200.0" promptText="Person number">
+                                       <HBox.margin>
+                                          <Insets left="75.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="newWorkerAddressField" disable="true" prefWidth="200.0" promptText="Address">
+                                       <HBox.margin>
+                                          <Insets left="75.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <Button fx:id="hireWorkerButton" disable="true" mnemonicParsing="false" onAction="#hireWorker" text="Hire worker" />
+                              <Label contentDisplay="CENTER" prefHeight="50.0" prefWidth="750.0" text="Add new bandmember" textAlignment="CENTER">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <HBox prefHeight="31.0" prefWidth="750.0">
+                                 <children>
+                                    <TextField fx:id="newBandMemberNameField" disable="true" prefWidth="200.0" promptText="Name of bandmember">
+                                       <opaqueInsets>
+                                          <Insets />
+                                       </opaqueInsets>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="newBandMemberInfoField" disable="true" prefHeight="25.0" prefWidth="480.0" promptText="Bandmember information">
+                                       <HBox.margin>
+                                          <Insets left="75.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                              </HBox>
+                              <Button fx:id="addBandMemberButton" disable="true" mnemonicParsing="false" onAction="#addBandMember" text="Add bandmember" />
+                           </children>
+                           <padding>
+                              <Insets left="75.0" right="75.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Security">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="700.0" prefWidth="900.0">
+                           <children>
+                              <Label minHeight="50.0" prefHeight="48.0" prefWidth="450.0" text="Security schedule">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TableView fx:id="securityScheduleTable" prefHeight="700.0" prefWidth="750.0" />
+                              <HBox prefHeight="29.0" prefWidth="751.0">
+                                 <children>
+                                    <ChoiceBox fx:id="securityStageChoiceBox" disable="true" prefWidth="200.0" />
+                                    <ChoiceBox fx:id="securityDateChoiceBox" disable="true" prefWidth="200.0">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </ChoiceBox>
+                                    <TextField fx:id="securityTimeField" disable="true" prefWidth="200.0" promptText="Time">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="securityPersonNumberField" disable="true" prefWidth="200.0" promptText="Person number">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <padding>
+                                    <Insets top="10.0" />
+                                 </padding>
+                              </HBox>
+                              <Button fx:id="securityAddToScheduleButton" disable="true" mnemonicParsing="false" onAction="#addToSecuritySchedule" text="Add to schedule">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets left="75.0" right="75.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Workers">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="700.0" prefWidth="901.0">
+                           <children>
+                              <Label minHeight="50.0" prefHeight="50.0" prefWidth="450.0" text="Festival workers">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TableView fx:id="workerTable" prefHeight="580.0" prefWidth="900.0" />
+                           </children>
+                           <padding>
+                              <Insets left="75.0" right="75.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Band Contact">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="700.0" prefWidth="901.0">
+                           <children>
+                              <Label minHeight="50.0" prefHeight="50.0" prefWidth="450.0" text="Band contact associations">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TableView fx:id="workerContactTable" prefHeight="580.0" prefWidth="900.0" />
+                           </children>
+                           <padding>
+                              <Insets left="75.0" right="75.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
