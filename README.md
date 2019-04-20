@@ -76,6 +76,7 @@ The main goal of the project was to learn SQL.
             the user presses 'Admin'.
 
    * **Models:**
+   
         **Band:**
             Represents a band in the database.
 
