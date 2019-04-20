@@ -8,7 +8,7 @@ The main goal of the project was to learn SQL.
     the user can see the festival schedule and all the bands attending the festival.
     If the user clicks on 'Admin', the user is taken to the administrator program.
     
-   ![Start view](https://github.com/danielwikander/FestivalBase/screenshots/festivalbasestart.png)
+   ![Start view](https://github.com/danielwikander/FestivalBase/blob/master/screenshots/festivalbasestart.png)
 
 
    In both programs the user can select a tab on the top of the window to change view.
@@ -21,7 +21,7 @@ The main goal of the project was to learn SQL.
         
    Example:
    
-   ![Normal user view](https://github.com/danielwikander/FestivalBase/screenshots/festivalbaseclient.png)
+   ![Normal user view](https://github.com/danielwikander/FestivalBase/blob/master/screenshots/festivalbaseclient.png)
 
    Administrators will see the following tabs:
    * **Administrator:**
@@ -44,7 +44,7 @@ The main goal of the project was to learn SQL.
         
    Example:
    
-   ![Admin view](https://github.com/danielwikander/FestivalBase/screenshots/festivalbaseadmin.png)
+   ![Admin view](https://github.com/danielwikander/FestivalBase/blob/master/screenshots/festivalbaseadmin.png)
 
 ### Components of the program:
    The program is built using the MVC designpattern, with 'controllers'
@@ -102,3 +102,7 @@ The main goal of the project was to learn SQL.
         Contains the FXML files for JavaFX.
         These files contain information about the position and function
         of the graphical interface and its elements.
+
+### Database ER-Diagram:
+  
+![Admin view](https://github.com/danielwikander/FestivalBase/blob/master/screenshots/ER-diagram.png)
