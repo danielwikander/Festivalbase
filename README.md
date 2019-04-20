@@ -1,5 +1,5 @@
 # Festivalbase
-Festivalbase is a program for handling a fictional festivals schedule. It is written using postgreSQL and Java. 
+Festivalbase is a program for handling a fictional festivals schedule. It is written using PostgreSQL and Java. 
 The main goal of the project was to learn SQL. 
 
 ## Description of program use:
