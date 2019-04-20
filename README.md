@@ -8,52 +8,52 @@ The main goal of the project was to learn SQL.
    as objects containing data.
   
 
-   * SQLFiles:
+   * **SQLFiles:**
         The SQL file used to create the database.
 
-   * Controllers:
-        Main:
+   * **Controllers:**
+        **Main:**
             Used to start the program. Initializes the first views.
         
-        MainViewController:
+        **MainViewController:**
             Controller for the main 'view' of the program.
             This is the view that is presented to normal users
             wishing to see the festival schedule.
             Handles logic for the main UI.
 
-        SQLController:
+        **SQLController:**
             Handles database queries.
             This is a static class that is called by the other controllers
             when they need to insert or retrieve data from the database.
 
-        StartViewController:
+        **StartViewController:**
             Controller for the 'start' view. Starts the normal schedule program if
             the user presses 'Start', and starts the administrator program if
             the user presses 'Admin'.
 
-   * Models:
-        Band:
+   * **Models:**
+        **Band:**
             Represents a band in the database.
 
-        ResponsibilityTable:
+        **ResponsibilityTable:**
             Represents a table containing the connections between workers
             and bands / bandmembers.
 
-        SecuritySchedule:
+        **SecuritySchedule:**
             Represents the schedule containing the security schedule
             for the festival.
 
-        StageSchedule:
+        **StageSchedule:**
             Represents the schedule for the concerts at a specific stage.
 
-        Worker:
+        **Worker:**
             Represents a worker at the festival.
 
 
-   * Resources:
+   * **Resources:**
         Contains images used in the UI.
 
-   * Views:
+   * **Views:**
         Contains the FXML files for JavaFX.
         These files contain information about the position and function
         of the graphical interface and its elements.
@@ -68,28 +68,28 @@ The main goal of the project was to learn SQL.
 
    The following views exist:
    The normal user can see the following tabs:
-   * Schedule:
+   * **Schedule:**
         Contains the schedule for the festivals different scenes.
         
-   * Bands:
+   * **Bands:**
         A list of all the bands performing at the festival.
 
    Administrators will see the following tabs:
-   * Administrator:
+   * **Administrator:**
         Contains administrator features such as booking a band,
         assigning a contact person to a band,
         specifying a concert for a band
         and hiring a new worker.
 
-   * Security:
+   * **Security:**
         Contains the security schedule for the festival.
         Shows what worker is responsible for security at 
         different scenes and times.
 
-   * Workers:
+   * **Workers:**
         Contains a list of all the workers at the festival.
 
-   * Band Contact:
+   * **Band Contact:**
         Contains a list of how many band members each worker is
         a contact person for.
 
