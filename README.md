@@ -6,13 +6,13 @@ The main goal of the project was to learn SQL.
    The user is initially presented with a 'Start' Screen.
     If the user clicks on 'Start', the schedule view will be presented where
     the user can see the festival schedule and all the bands attending the festival.
-    If the user clicks on 'Admin', the user is taken to the administrator program.
+    If the user clicks on 'Admin', the user is taken to the administrator view.
     
    ![Start view](https://github.com/danielwikander/FestivalBase/blob/master/screenshots/festivalbasestart.png)
 
 
-   In both programs the user can select a tab on the top of the window to change view.
-   The normal user can see the following tabs:
+   In both views the user can select a tab on the top of the window to change between the internal views.
+   The normal user can switch between the following tabs:
    * **Schedule:**
         Contains the schedule for the festivals different scenes.
         
