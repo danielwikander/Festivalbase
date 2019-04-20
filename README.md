@@ -12,6 +12,7 @@ The main goal of the project was to learn SQL.
         The SQL file used to create the database.
 
    * **Controllers:**
+   
         **Main:**
             Used to start the program. Initializes the first views.
         
