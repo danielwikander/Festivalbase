@@ -7,6 +7,7 @@ The main goal of the project was to learn SQL.
     If the user clicks on 'Start', the schedule view will be presented where
     the user can see the festival schedule and all the bands attending the festival.
     If the user clicks on 'Admin', the user is taken to the administrator program.
+    
    ![Start view](https://github.com/danielwikander/FestivalBase/screenshots/festivalbasestart.png)
 
 
@@ -17,7 +18,9 @@ The main goal of the project was to learn SQL.
         
    * **Bands:**
         A list of all the bands performing at the festival.
+        
    Example:
+   
    ![Normal user view](https://github.com/danielwikander/FestivalBase/screenshots/festivalbaseclient.png)
 
    Administrators will see the following tabs:
@@ -40,6 +43,7 @@ The main goal of the project was to learn SQL.
         a contact person for.
         
    Example:
+   
    ![Admin view](https://github.com/danielwikander/FestivalBase/screenshots/festivalbaseadmin.png)
 
 ### Components of the program:
