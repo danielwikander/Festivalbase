@@ -2,7 +2,7 @@
 Festivalbase is a program for handling a fictional festivals schedule. It is written using postgreSQL and Java. 
 The main goal of the project was to learn SQL. 
 
-### Description of program use:
+## Description of program use:
    The user is initially presented with a 'Start' Screen.
     If the user clicks on 'Start', the schedule view will be presented where
     the user can see the festival schedule and all the bands attending the festival.
@@ -46,60 +46,60 @@ The main goal of the project was to learn SQL.
    
    ![Admin view](https://github.com/danielwikander/FestivalBase/blob/master/screenshots/festivalbaseadmin.png)
 
-### Components of the program:
+## Components of the program:
    The program is built using the MVC designpattern, with 'controllers'
    handling logic, 'views' handling graphical components and 'models' 
    as objects containing data.
   
-   * **SQLFiles:**
-        The SQL file used to create the database.
+  ### SQLFiles:
+   The SQL file used to create the database.
 
-   * **Controllers:**
+   **Controllers:**
    
-        **Main:**
+**Main:**
             Used to start the program. Initializes the first views.
         
-        **MainViewController:**
+**MainViewController:**
             Controller for the main 'view' of the program.
             This is the view that is presented to normal users
             wishing to see the festival schedule.
             Handles logic for the main UI.
 
-        **SQLController:**
+**SQLController:**
             Handles database queries.
             This is a static class that is called by the other controllers
             when they need to insert or retrieve data from the database.
 
-        **StartViewController:**
+**StartViewController:**
             Controller for the 'start' view. Starts the normal schedule program if
             the user presses 'Start', and starts the administrator program if
             the user presses 'Admin'.
 
-   * **Models:**
+### Models:
    
-        **Band:**
+**Band:**
             Represents a band in the database.
 
-        **ResponsibilityTable:**
+**ResponsibilityTable:**
             Represents a table containing the connections between workers
             and bands / bandmembers.
 
-        **SecuritySchedule:**
+**SecuritySchedule:**
             Represents the schedule containing the security schedule
             for the festival.
 
-        **StageSchedule:**
+**StageSchedule:**
             Represents the schedule for the concerts at a specific stage.
 
-        **Worker:**
+**Worker:**
             Represents a worker at the festival.
 
 
-   * **Resources:**
-        Contains images used in the UI.
+### Resources:
+   Contains images used in the UI.
 
-   * **Views:**
-        Contains the FXML files for JavaFX.
+### Views:
+   Contains the FXML files for JavaFX.
         These files contain information about the position and function
         of the graphical interface and its elements.
 
