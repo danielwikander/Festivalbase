@@ -10,9 +10,9 @@ import java.sql.*;
  * Holds all the functions related to the database.
  */
 public class SQLController {
-    private static String dbURL = "jdbc:postgresql://pgserver.mah.se/ah4502projekt";
-    private static String dbUser = "ah4502";
-    private static String dbPassword = "rrdbuol3";
+    private static String dbURL = "YOURDBURL";
+    private static String dbUser = "YOURDBUSERNAME";
+    private static String dbPassword = "YOURDBPASSWORD";
     private static Connection dbConnection;
 
     /**
